@@ -1,10 +1,10 @@
-import { Comment as CommentComponent } from "@prisma/client"
+import { Comment } from "@prisma/client"
 import CreateCommentForm from "./create-comment-form"
 import CommentList from "./commentList"
 import { clerkClient } from "@clerk/nextjs"
 
 type CommentProps = {
-  data: CommentComponent[]
+  data: Comment[]
 }
 
 const CommentComponent = ({ data }: CommentProps) => {
