@@ -1,13 +1,13 @@
-import { Comment } from "@prisma/client"
+import { Comment as CommentComponent } from "@prisma/client"
 import CreateCommentForm from "./create-comment-form"
 import CommentList from "./commentList"
 import { clerkClient } from "@clerk/nextjs"
 
 type CommentProps = {
-  data: Comment[]
+  data: CommentComponent[]
 }
 
-const Comment = ({ data }: CommentProps) => {
+const CommentComponent = ({ data }: CommentProps) => {
   const getUserName = async (id: string) => {
     const user = await clerkClient.users.getUser(id)
     if (user.firstName && user.lastName) return `${user.firstName} ${user.lastName}`
@@ -29,4 +29,4 @@ const Comment = ({ data }: CommentProps) => {
   )
 }
 
-export default Comment
+export default CommentComponent

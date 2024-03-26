@@ -3,7 +3,7 @@ import { ptBR } from 'date-fns/locale'
 import prismadb from "@/lib/prismadb"
 import Image from "next/image"
 import { Fragment } from 'react'
-import Comment from './components/comment'
+import CommentComponent from './components/comment'
 
 type Props = {
   params: {
@@ -49,7 +49,7 @@ const Post = async ({ params }: Props) => {
               ))}
             </p>
           </article>
-          <Comment
+          <CommentComponent
             data={post.comments}
           />
         </>

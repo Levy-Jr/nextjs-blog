@@ -10,16 +10,6 @@ type CommentClientProps = {
 
 const CommentList = ({ comment, userName }: CommentClientProps) => {
   const [isMounted, setIsMounted] = useState(false)
-  const [open, setOpen] = useState(false)
-  const [loading, setLoading] = useState(false)
-
-  const onEdit = () => {
-
-  }
-
-  const onDelete = () => {
-
-  }
 
   useEffect(() => {
     setIsMounted(true)
