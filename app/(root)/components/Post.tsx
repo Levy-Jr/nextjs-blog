@@ -40,10 +40,10 @@ const PostComponent = ({ data, userRole }: Props) => {
   }
 
   return (
-    <li className="flex justify-between">
+    <li className="md:flex justify-between">
       <Link
         href={`/post/${data.id}`}
-        className="flex items-center space-x-4"
+        className="md:flex items-center md:space-x-4"
       >
         <div className="relative w-32 h-32">
           <Image
@@ -77,7 +77,7 @@ const PostComponent = ({ data, userRole }: Props) => {
             onConfirm={onDelete}
             loading={loading}
           />
-          <div className="space-x-4">
+          <div className="flex gap-4 mt-4 md:mt-0">
             <Button className="bg-green-400 hover:bg-green-600" onClick={onEdit}>
               <Edit className="h-4 w-4" />
             </Button>

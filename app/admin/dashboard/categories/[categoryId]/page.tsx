@@ -30,7 +30,7 @@ const AdminDashboard = async ({
       {categories &&
         <>
           <h2 className="text-xl font-bold">Categorias: </h2>
-          <ul className="flex gap-3 mt-2 cursor-default">
+          <ul className="flex flex-wrap gap-3 mt-2 cursor-default">
             {categories.map(category => (
               <li key={category.id}>
                 <Badge style={{

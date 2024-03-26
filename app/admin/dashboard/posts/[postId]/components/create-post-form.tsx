@@ -106,7 +106,7 @@ const CreatePostForm: FC<PostFormProps> = ({
               disabled={loading}
               variant="destructive"
               onClick={onDelete}
-              className='gap-2 leading-none self-end'
+              className='gap-2 leading-none self-end mt-6'
             >
               Deletar post
               <Trash className='h-4 w-4' />

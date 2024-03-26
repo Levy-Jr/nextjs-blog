@@ -23,7 +23,7 @@ const Post = async ({ params }: Props) => {
   })
 
   return (
-    <div className='max-w-6xl mx-auto'>
+    <div className='max-w-6xl p-8 pt-6 mx-auto'>
       {post &&
         <>
           <article className="max-w-4xl mx-auto">
@@ -32,7 +32,7 @@ const Post = async ({ params }: Props) => {
               locale: ptBR
             })} às {getHours(post.createdAt)}:{getMinutes(post.createdAt)}
             </p>
-            <div className="w-full h-[50rem] mt-2 mb-8 relative">
+            <div className="w-full h-[20rem] md:h-[50rem] mt-2 mb-8 relative">
               <Image
                 fill
                 alt={post.title}
