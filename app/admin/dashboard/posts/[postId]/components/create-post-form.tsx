@@ -90,7 +90,7 @@ const CreatePostForm: FC<PostFormProps> = ({
       router.push(`/admin/dashboard`)
       toast.success("Post excluído.")
     } catch (error) {
-      toast.error('Something went wrong.')
+      toast.error('Algo deu errado.')
     } finally {
       setLoading(false)
     }

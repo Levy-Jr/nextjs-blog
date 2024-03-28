@@ -2,13 +2,15 @@
 
 import { Comment } from "@prisma/client"
 import { useEffect, useState } from "react";
+import CommentAdmin from "./commentAdmin";
 
 type CommentClientProps = {
+  isCommentOwner: boolean;
   userName: Promise<string | null>;
   comment: Comment;
 }
 
-const CommentList = ({ comment, userName }: CommentClientProps) => {
+const CommentList = ({ isCommentOwner, comment, userName }: CommentClientProps) => {
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
@@ -18,10 +20,10 @@ const CommentList = ({ comment, userName }: CommentClientProps) => {
   if (!isMounted) return null
 
   return (
-    <ul className="my-8 space-y-6">
+    <>
       <li
         key={comment.id}
-        className="flex justify-between"
+        className="flex flex-col md:flex-row justify-between"
       >
         <div>
           <div>
@@ -29,8 +31,13 @@ const CommentList = ({ comment, userName }: CommentClientProps) => {
           </div>
           <p>{comment.text}</p>
         </div>
+        {isCommentOwner &&
+          <CommentAdmin
+            comment={comment}
+          />
+        }
       </li>
-    </ul>
+    </>
   )
 }
 
