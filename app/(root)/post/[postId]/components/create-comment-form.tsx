@@ -5,7 +5,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Textarea } from "@/components/ui/textarea"
 import { zodResolver } from "@hookform/resolvers/zod"
 import axios from "axios"
-import { useParams, useRouter } from "next/navigation"
+import { redirect, useParams, useRouter } from "next/navigation"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import toast from "react-hot-toast"
@@ -38,7 +38,11 @@ const CreateCommentForm = () => {
       await axios.post(`/api/posts/${params.postId}/comment`, data)
       router.refresh()
       toast.success("Comentário inserido.")
-    } catch (error) {
+    } catch (error: any) {
+      if (error.response.data.toLowerCase() === 'unauthenticated') {
+        return router.push('/sign-in')
+      }
+
       toast.error('Algo deu errado')
     } finally {
       setLoading(false)
